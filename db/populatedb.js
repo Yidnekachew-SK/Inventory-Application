@@ -2,26 +2,26 @@ const { Client } = require("pg");
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS categories (
-  categoryId INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  categoryName VARCHAR (50)
+  category_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  category_name VARCHAR (50)
 );
 
 CREATE TABLE IF NOT EXISTS items (
-  itemId INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  itemName VARCHAR (50),
+  item_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  item_name VARCHAR (50),
   quantity NUMERIC(3),
   price NUMERIC(3,1),
-  categoryId INTEGER REFERENCES categories(categoryId)
+  category_id INTEGER REFERENCES categories(category_id)
 );
 
-INSERT INTO categories (categoryName)
+INSERT INTO categories (category_name)
 VALUES
   ('Football'),
   ('Basketball'),
   ('Tennis'),
   ('Swimming');
 
-INSERT INTO items (itemName, quantity, price, categoryId)
+INSERT INTO items (item_name, quantity, price, category_id)
 VALUES
   ('footBall', 30, 25.0, 1),
   ('Goalkeeper Gloves', 15, 20, 1),

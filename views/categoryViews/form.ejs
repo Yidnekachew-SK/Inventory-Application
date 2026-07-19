@@ -1,0 +1,22 @@
+<div class="CategoryForms">
+    <%- include('../partials/nav') %>
+    <%- include('../partials/error') %>
+
+    <% if (formType === 'create') { %>
+        <form action="/create" method="post">
+            <label for="category">Category Name: </label>
+            <input type="text" id="category" name="categoryName">
+            <button type="submit">Submit</button>
+        </form>
+    <% } else if (formType === 'update') { %>
+        <form action="/<%= category[0].category_id %>/update?_method=PUT" method="post">
+            <input type="hidden" name="_method" value="PUT">
+
+            <label for="category">New Category Name: </label>
+            <input type="text" id="category" name="newCategoryName" value="<%= category[0].category_name %>">
+            <label for="control">Admin Password</label>
+            <input type="text" name="adminPass" id="control" required>
+            <button type="submit">Submit</button>
+        </form>
+    <% } %>
+</div>
