@@ -12,7 +12,7 @@
     </form>
     <% categories.forEach((category) => { %>
         <div class="card">
-            <p><%= category.category_name %></p>
+            <p><a href="/item/<%= category.category_id %>"><%= category.category_name %></a></p>
             <div class="links">
                 <form action="/<%= category.category_id %>/update" method="get" style="display:inline;">
                     <button type="submit">
