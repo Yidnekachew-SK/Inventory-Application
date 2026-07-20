@@ -1,0 +1,28 @@
+.itemSection {
+    margin-top: 80px;
+    min-height: 90vh;
+    padding: 15px 25px;
+}
+
+.addItemButton {
+    padding: 5px 10px;
+    font-size: 16px;
+    margin: 5px 10px;
+}
+
+table {
+    margin-top: 20px;
+    width: 90%;
+}
+
+th {
+    padding: 5px;
+    text-align: left;
+    font-size: 18px;
+}
+
+td {
+    padding: 5px;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+}

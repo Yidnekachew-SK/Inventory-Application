@@ -1,0 +1,64 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 1px solid;
+    background-color: #2184ac;
+}
+
+.storeName {
+    width: 50%;
+}
+
+.storeName p {
+    font-size: 25px;
+    font-family: monospace;
+    padding: 2px 5px;
+    margin: 10px 5px;
+    color: aliceblue;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 2px 4px;
+    font-size: 20px;
+    margin-right: 30px;
+    color: aliceblue;
+}
+
+footer {
+	padding: 5px;
+	margin-top: 30px;
+	background-color: #14536c;
+	color: wheat;
+    bottom: 0%;
+    width: 100%;
+}
+
+footer a {
+	color: floralwhite;
+	text-decoration: none;
+	font-family: "Cinzel Decorative", sans-serif;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
+
+footer img {
+	width: 30px;
+}
+
+.errorDisplayer {
+    padding: 10px 15px;
+}
+
+li {
+    font-size: 17px;
+    color: red;
+}

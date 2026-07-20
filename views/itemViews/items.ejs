@@ -3,41 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/itemStyles/item-styles.css">
     <title>Sport equipment store</title>
 </head>
 <body>
     <%- include('../partials/nav') %>
-    <form action="/item/create/<%= categoryId %>" method="get">
-        <button type="submit">Add Item</button>
-    </form>
-    <table>
-        <thead>
-            <tr>
-                <th>Item Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% items.forEach((item) => { %>
+    <div class="itemSection">
+        <form action="/item/create/<%= categoryId %>" method="get">
+            <button type="submit" class="addItemButton">Add Item</button>
+        </form>
+        <table>
+            <thead>
                 <tr>
-                    <td><%= item.item_name %></td>
-                    <td><%= item.price %></td>
-                    <td><%= item.quantity %></td>
-                    <td><a href="/item/<%= item.item_id %>/update">Edit</a></td>
-                    <td>
-                        <form action="/item/<%= item.item_id %>/delete?_method=DELETE" method="POST" style="display:inline;">
-                            <button type="submit" onclick="return confirm('Are you sure you want to delete the item?');">
-                                Delete
-                            </button>
-                        </form>
-                    </td>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
-            <% }) %>
-        </tbody>
-    </table>
-
+            </thead>
+            <tbody>
+                <% items.forEach((item) => { %>
+                    <tr>
+                        <td><%= item.item_name %></td>
+                        <td><%= item.price %></td>
+                        <td><%= item.quantity %></td>
+                        <td><a href="/item/<%= item.item_id %>/update">Edit</a></td>
+                        <td>
+                            <form action="/item/<%= item.item_id %>/delete?_method=DELETE" method="POST" style="display:inline;">
+                                <button type="submit" onclick="return confirm('Are you sure you want to delete the item?');">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <%- include('../partials/footer')%>
 </body>
 </html>

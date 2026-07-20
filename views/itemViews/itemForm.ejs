@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/form-styles.css">
+<div class="ItemForms">
+    <%- include('../partials/nav') %>
+    
+    <div class="formSection">
+        <%- include('../partials/error') %>
+
+        <% if (formType === 'create') { %>
+            <p>Add new item to <%= category.category_name %></p>
+            <form action="/item/create/<%= category.category_id %>" method="post">
+                <label for="item-name">Item Name: </label>
+                <input type="text" name="itemName" id="item-name">
+                <label for="item-price">Price: </label>
+                <input type="text" name="price" id="item-price">
+                <label for="item-quantity">Quantity: </label>
+                <input type="text" name="quantity" id="item-quantity">
+
+                <button type="submit">Submit</button>
+            </form>
+        <% } else if (formType === 'update') { %>
+            <form action="/item/<%= item[0].item_id %>/update?_method=PUT" method="post">
+                <input type="hidden" name="_method" value="PUT">
+
+                <label for="item-name">Item Name: </label>
+                <input type="text" name="newItemName" id="item-name" value="<%= item[0].item_name %>">
+                <label for="item-price">Price: </label>
+                <input type="text" name="newPrice" id="item-price"  value="<%= item[0].price %>">
+                <label for="item-quantity">Quantity: </label>
+                <input type="text" name="newQuantity" id="item-quantity"  value="<%= item[0].quantity %>">
+                <select name="options" id="categoryOptions">
+                    <% categories.forEach((category) => { %>
+                        <option value="<%= category.category_id %>" 
+                        <%= category.category_id === currentCategory ? "selected" : "" %>>
+                            <%= category.category_name %>
+                        </option>
+                    <% }) %>
+                </select><br>
+                <label for="control">Admin Password</label>
+                <input type="text" name="adminPass" id="control" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        <% } %>
+    </div>
+    
+</div>

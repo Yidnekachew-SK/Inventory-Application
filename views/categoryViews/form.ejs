@@ -1,22 +1,30 @@
+<link rel="stylesheet" href="/form-styles.css">
 <div class="CategoryForms">
     <%- include('../partials/nav') %>
-    <%- include('../partials/error') %>
+    
+    <div class="formSection">
+        <%- include('../partials/error') %>
 
-    <% if (formType === 'create') { %>
-        <form action="/create" method="post">
-            <label for="category">Category Name: </label>
-            <input type="text" id="category" name="categoryName">
-            <button type="submit">Submit</button>
-        </form>
-    <% } else if (formType === 'update') { %>
-        <form action="/<%= category[0].category_id %>/update?_method=PUT" method="post">
-            <input type="hidden" name="_method" value="PUT">
+        <% if (formType === 'create') { %>
+            <form action="/create" method="post" class="createCategoryForm">
+                <p>Add new Category</p>
+                <div class="input">
+                    <label for="category">Category Name: </label><br>
+                    <input type="text" id="category" name="categoryName">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        <% } else if (formType === 'update') { %>
+            <form action="/<%= category[0].category_id %>/update?_method=PUT" method="post" class="updateCategoryForm">
+                <input type="hidden" name="_method" value="PUT">
+                <p>Update category</p>
 
-            <label for="category">New Category Name: </label>
-            <input type="text" id="category" name="newCategoryName" value="<%= category[0].category_name %>">
-            <label for="control">Admin Password</label>
-            <input type="text" name="adminPass" id="control" required>
-            <button type="submit">Submit</button>
-        </form>
-    <% } %>
+                <label for="newCategory">New Category Name: </label>
+                <input type="text" id="newCategory" name="newCategoryName" value="<%= category[0].category_name %>">
+                <label for="control">Admin Password</label>
+                <input type="password" name="adminPass" id="control" required>
+                <button type="submit">Submit</button>
+            </form>
+        <% } %>
+    </div>
 </div>

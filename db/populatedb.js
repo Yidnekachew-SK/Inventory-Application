@@ -23,7 +23,7 @@ VALUES
 
 INSERT INTO items (item_name, quantity, price, category_id)
 VALUES
-  ('footBall', 30, 25.0, 1),
+  ('football', 30, 25.0, 1),
   ('Goalkeeper Gloves', 15, 20, 1),
   ('Basketball', 20, 39.9, 2),
   ('Basketball Hoop', 5, 90.9, 2),

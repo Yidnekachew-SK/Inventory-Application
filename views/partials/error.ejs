@@ -1,7 +1,10 @@
-<% if (locals.errors) {%>
-  <ul>
-    <% errors.forEach((error) => { %>
-      <li><%= error.msg %></li>
-    <% }); %>
-  </ul>
-<% } %>
+<link rel="stylesheet" href="/partials-styles">
+<div class="errorDisplayer">
+  <% if (locals.errors) {%>
+    <ul>
+      <% errors.forEach((error) => { %>
+        <li><%= error.msg %></li>
+      <% }); %>
+    </ul>
+  <% } %>
+</div>

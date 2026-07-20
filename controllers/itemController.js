@@ -10,7 +10,7 @@ async function getItems(req, res) {
 
 async function createItemGet(req, res) {
     const category = await db.getCategoryById(req.params.categoryId);
-    res.render('itemViews/createItemForm', { formType: 'create', category: category[0] });
+    res.render('itemViews/itemForm', { formType: 'create', category: category[0] });
 }
 
 validateCreateItem = [
@@ -29,7 +29,7 @@ createItemPost = [
     async (req, res) => {
         const error = validationResult(req);
         if (!error.isEmpty()) {
-            return res.status(400).render("itemViews/createItemForm", {
+            return res.status(400).render("itemViews/itemForm", {
                 formType: 'create',
                 errors: error.array()
             });
@@ -45,7 +45,7 @@ createItemPost = [
 async function updateItemGet(req, res) {
     const item = await db.getItemById(req.params.itemId);
     const categories = await db.getAllCategories();
-    res.render('itemViews/createItemForm', { 
+    res.render('itemViews/itemForm', { 
         formType: 'update', 
         item, 
         categories,
@@ -74,12 +74,14 @@ UpdateItemPost = [
     validateUpdateItem,
     async (req, res) => {
         const error = validationResult(req); 
+        const item = await db.getItemById(req.params.itemId);
         const categories = await db.getAllCategories();
         if (!error.isEmpty()) {
-            return res.status(400).render("itemViews/createItemForm", {
+            return res.status(400).render("itemViews/itemForm", {
                 formType: 'update',
-                item: await db.getItemById(req.params.itemId),
+                item,
                 categories,
+                currentCategory: item[0].category_id,
                 errors: error.array()
             });
         }

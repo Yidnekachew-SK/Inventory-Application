@@ -1,0 +1,57 @@
+body {
+    height: 100vh;
+}
+
+.mainSection {
+    margin-top: 80px;
+    min-height: 90vh;
+}
+
+.addCategoryButton {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.addCategoryButton:hover, .categoryLinks button:hover {
+    box-shadow: 2px 2px 3px gray;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.categoryCardContainer {
+    padding: 15px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px 15px;
+}
+
+.categoryCard {
+    min-height: 120px;
+    border: 1px solid gray;
+}
+
+.categoryCard p {
+    text-align: center;
+    padding: 3px 5px;
+    font-size: 20px;
+}
+
+.categoryCard a {
+    text-decoration: none;
+    color: black;
+}
+
+.categoryLinks {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.categoryLinks button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    margin: 3px;
+}
