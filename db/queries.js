@@ -27,6 +27,11 @@ async function getItemsByCategory(id) {
     return rows;
 }
 
+async function getItemById(id) {
+    const { rows } = await pool.query("SELECT * FROM items WHERE item_id = ($1)", [id]);
+    return rows;
+}
+
 async function insertItem(name, quantity, price, category) {
   await pool.query("INSERT INTO items (item_name, quantity, price, category_id) VALUES ($1, $2, $3, $4)", [name, quantity, price, category]);
 }
@@ -46,6 +51,7 @@ module.exports = {
   updateCategory,
   deleteCategory,
   getItemsByCategory,
+  getItemById,
   insertItem,
   UpdateItem,
   deleteItem

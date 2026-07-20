@@ -1,4 +1,4 @@
-<div class="CategoryForms">
+<div class="ItemForms">
     <%- include('../partials/nav') %>
     <%- include('../partials/error') %>
 
@@ -15,20 +15,23 @@
             <button type="submit">Submit</button>
         </form>
     <% } else if (formType === 'update') { %>
-        <form action="/<%= category[0].category_id %>/update?_method=PUT" method="post">
+        <form action="/item/<%= item[0].item_id %>/update?_method=PUT" method="post">
             <input type="hidden" name="_method" value="PUT">
 
             <label for="item-name">Item Name: </label>
-            <input type="text" name="newItemName" id="item-name" value="<%= item.item_name %>">
+            <input type="text" name="newItemName" id="item-name" value="<%= item[0].item_name %>">
             <label for="item-price">Price: </label>
-            <input type="text" name="newPrice" id="item-price"  value="<%= item.price %>">
+            <input type="text" name="newPrice" id="item-price"  value="<%= item[0].price %>">
             <label for="item-quantity">Quantity: </label>
-            <input type="text" name="newQuantity" id="item-quantity"  value="<%= item.quantity %>">
+            <input type="text" name="newQuantity" id="item-quantity"  value="<%= item[0].quantity %>">
             <select name="options" id="categoryOptions">
                 <% categories.forEach((category) => { %>
-                    <option value="<%= category.category_id %>"><%= category.category_name %></option>
+                    <option value="<%= category.category_id %>" 
+                    <%= category.category_id === currentCategory ? "selected" : "" %>>
+                        <%= category.category_name %>
+                    </option>
                 <% }) %>
-                </select>
+            </select>
             <label for="control">Admin Password</label>
             <input type="text" name="adminPass" id="control" required>
 

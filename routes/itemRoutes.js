@@ -8,17 +8,11 @@ itemRouter.get('/create/:categoryId', itemController.createItemGet)
 
 itemRouter.post('/create/:categoryId', itemController.createItemPost)
 
-itemRouter.get('/:itemId/update', (req, res) => {
-    res.send('get category updated');
-})
+itemRouter.get('/:itemId/update', itemController.updateItemGet)
 
-itemRouter.put('/:itemId/update', (req, res) => {
-    res.send('put category updated');
-})
+itemRouter.put('/:itemId/update', itemController.UpdateItemPost)
 
-itemRouter.delete('/:itemId/delete', (req, res) => {
-    res.send('category deleted');
-})
+itemRouter.delete('/:itemId/delete', itemController.deleteItem)
 
 
 module.exports = itemRouter
